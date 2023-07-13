@@ -36,7 +36,7 @@ To run the application locally. See below if you like to install this service wi
 uvicorn main:app --reload
 ```
 
-The application will be available at http://localhost:8000. The interactive API documentation will be available at http://localhost:8000/docs.
+The application will be available at http://localhost:8000. The interactive OpenAPI documentation will be available at http://localhost:8000/docs.
 
 ## To install and run the application with Docker:
 
@@ -44,7 +44,7 @@ This will also download the docker image and install everything within a docker 
 
 `docker-compose up --build`
 
-Then visit http://0.0.0.0:8000 to view the OpenAPI docs.
+The application will be available at http://localhost:8000. The interactive OpenAPI documentation will be available at http://localhost:8000/docs.
 
 ![Screenshot](https://github.com/nkamali/url-shortener/blob/main/Screen%20Shot%202023-07-12%20at%2011.06.42%20PM.png)
 
