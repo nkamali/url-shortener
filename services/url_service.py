@@ -9,8 +9,6 @@ from random import choice
 def shorten_url(url: str, db: Session) -> str:
     # generate a random 5 character string as the alias
     alias = ''.join(choice(ascii_letters + digits) for _ in range(5))
-    print("ALIAS", alias, type(alias))
-    print("URL", url, type(url))
     url_model = UrlModel(alias=alias, url=url)
     db.add(url_model)
     try:
