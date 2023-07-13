@@ -14,7 +14,9 @@ git clone https://github.com/nkamali/url-shortener.git
 cd url-shortener
 ```
 
-## Install dependencies:
+## Install dependencies locally:
+
+See below if you like to install this service within a docker container instead.
 
 ```
 pip install -r requirements.txt
@@ -28,7 +30,7 @@ DATABASE_URL=sqlite:///:memory:
 
 ## Running the Application
 
-To run the application locally:
+To run the application locally. See below if you like to install this service within a docker container instead.
 
 ```
 uvicorn main:app --reload
@@ -36,11 +38,15 @@ uvicorn main:app --reload
 
 The application will be available at http://localhost:8000. The interactive API documentation will be available at http://localhost:8000/docs.
 
-## To run the application with Docker:
+## To install and run the application with Docker:
 
-bash
-Copy code
-docker-compose up --build
+This will also download the docker image and install everything within a docker container.
+
+`docker-compose up --build`
+
+Then visit http://0.0.0.0:8000 to view the OpenAPI docs.
+
+![Screenshot](https://github.com/nkamali/url-shortener/blob/main/Screen%20Shot%202023-07-12%20at%2011.06.42%20PM.png)
 
 ## Project Structure
 
