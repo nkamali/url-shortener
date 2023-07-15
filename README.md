@@ -1,6 +1,6 @@
 # Navid's Url Shortener Service
 
-The Url Shortener Service is a simple RESTful service that shortens long URLs. This project is built with FastAPI, SQLAlchemy, and SQLite.
+The Url Shortener Service is a simple RESTful service that shortens long URLs. This project is built with FastAPI, SQLAlchemy, and PostgreSQL.
 
 ## Prerequisites
 
@@ -25,7 +25,12 @@ pip install -r requirements.txt
 Create an .env file for environment variables in your server. For example:
 
 ```
-DATABASE_URL=sqlite:///:memory:
+DATABASE_URL=postgresql+asyncpg://url_shortener:[YOUR_DB_PASSWORD]@db/url_shortener
+SYNCHRONOUS_DATABASE_URL=postgresql://url_shortener:[YOUR_DB_PASSWORD]@db/url_shortener
+POSTGRES_USER=url_shortener
+POSTGRES_PASSWORD=[YOUR_DB_PASSWORD]
+POSTGRES_DB=url_shortener
+
 ```
 
 ## Running the Application
@@ -48,6 +53,10 @@ The application will be available at http://localhost:8000. The interactive Open
 
 ![Screenshot](https://github.com/nkamali/url-shortener/blob/main/Screen%20Shot%202023-07-12%20at%2011.06.42%20PM.png)
 
+## To migrate the database using alembic:
+
+`docker-compose exec web alembic upgrade head `
+
 ## Project Structure
 
 The project's structure is as follows:
@@ -65,7 +74,6 @@ The project's structure is as follows:
 │   ├── db
 │   │   ├── __init__.py
 │   │   ├── models.py
-|   |   ├── types.py
 │   │   └── session.py
 │   ├── main.py
 │   └── services
@@ -80,7 +88,7 @@ The project's structure is as follows:
 
 FastAPI: A modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
 SQLAlchemy: The Python SQL Toolkit and Object-Relational Mapper that gives application developers the full power and flexibility of SQL.
-SQLite: A C library that provides a lightweight disk-based database.
+PostgreSQL: PostgreSQL is an open-source, object-relational database management system (ORDBMS).
 
 ## Contributing
 
